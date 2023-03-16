@@ -1,0 +1,1 @@
+provides: sqlmonitor-spring-boot-autoconfigure,sqlmonitor-mybatis

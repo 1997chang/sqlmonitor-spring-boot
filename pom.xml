@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.moxiao</groupId>
+    <artifactId>sqlmonitor-spring-boot</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    
+    <name>sql-Monitor-spring-boot</name>
+    <description>Spring boot Support for Sql Monitor</description>
+    <url>https://github.com/1997chang/sqlmonitor-spring-boot.git</url>
+
+    <licenses>
+        <license>
+            <name>Apache License</name>
+            <url>https://github.com/1997chang/sqlmonitor-spring-boot/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+    
+    <modules>
+        <module>sqlmonitor-spring-boot-autoconfigure</module>
+        <module>sqlmonitor-spring-boot-starter</module>
+    </modules>
+    
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <sqlmonitor.version>1.0.0</sqlmonitor.version>
+        <mybatis.version>3.5.6</mybatis.version>
+        <spring-boot.version>2.7.3</spring-boot.version>
+        <mybatis-spring-boot.version>2.2.2</mybatis-spring-boot.version>
+    </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+            
+            <dependency>
+                <groupId>com.moxiao</groupId>
+                <artifactId>sqlmonitor-mybatis</artifactId>
+                <version>${sqlmonitor.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-autoconfigure</artifactId>
+                <version>${mybatis-spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.moxiao</groupId>
+                <artifactId>sqlmonitor-spring-boot-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.moxiao</groupId>
+                <artifactId>sqlmonitor-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <inherited>true</inherited>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>
