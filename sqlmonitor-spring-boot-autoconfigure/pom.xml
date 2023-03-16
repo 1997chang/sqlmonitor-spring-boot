@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     
     <parent>
-        <groupId>com.moxiao</groupId>
+        <groupId>io.github.1997chang</groupId>
         <artifactId>sqlmonitor-spring-boot</artifactId>
         <version>1.0.0</version>
     </parent>
@@ -28,7 +28,7 @@
         </dependency>
         
         <dependency>
-            <groupId>com.moxiao</groupId>
+            <groupId>io.github.1997chang</groupId>
             <artifactId>sqlmonitor-mybatis</artifactId>
             <optional>true</optional>
         </dependency>
