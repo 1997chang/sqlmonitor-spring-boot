@@ -4,6 +4,10 @@ SQLMonitor-spring-boot-start用于将sqlMonitor-mybatis插件自动集成到Spri
 
 主要是基于[sqlMonitor-mybatis](https://github.com/1997chang/sqlmonitor)提供的功能，自动注册sqlMonitor插件，从而完成SQL语句的监控，通知，存储等功能。快速定位慢SQL语句有哪个Mapper的哪个方法造成。
 
+在使用sqlmonitor-spring-boot-starter时候，在配置文件中，使用`sqlmonitor`前缀进行配置
+
+如果想知道各个参数的详细信息，查看[sqlMonitor-mybatis](https://github.com/1997chang/sqlmonitor)项目
+
 Sql Monitor in Spring Boot Project
 
 ## 如何使用
@@ -11,9 +15,9 @@ Sql Monitor in Spring Boot Project
 ### 1. 添加依赖
 ```xml
 <dependency>
-    <artifactId>sqlmonitor-spring-boot</artifactId>
+    <artifactId>sqlmonitor-spring-boot-starter</artifactId>
     <groupId>io.github.1997chang</groupId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
@@ -35,8 +39,15 @@ Sql Monitor in Spring Boot Project
 
 例子：
 ```
-sqlmonitor.dingding-config.access-token=10f12cead3ce688dc030a35ad584f90aed07af401bd918b652c99a2180e77f2b
-sqlmonitor.dingding-config.secret=SECd115fa66c6782b3e6bd361a73ee9a66bd53bb3697466cbb6457c27e335799f1a
+sqlmonitor.enabled=true
+sqlmonitor.dingding-config.access-token=10f12cead3ce688dc030a35ad584f90aed07af401bd918b652c99a2*******
+sqlmonitor.dingding-config.secret=SECd115fa66c6782b3e6bd361a73ee9a66bd53bb3697466cbb6457c27e********
 sqlmonitor.execute-time-limit=2000
 sqlmonitor.monitor-stack-class=com.wx.app.ygp.YgpApplication
+sqlmonitor.es-config.index-name=ES索引名称（不必要）
 ```
+
+### 3.参数描述
+
+1. **sqlmonitor.enabled**：当使用spring-boot多模块中，当不想某个模块进行监控，将该参数配置为`false`。**默认**不配置为：`true`。即进行SQL监控。
+2. 其他的参数配置信息可以查看：[sqlMonitor-mybatis](https://github.com/1997chang/sqlmonitor)项目

@@ -9,15 +9,19 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
+import static com.moxiao.property.SqlMonitorAutoProperties.SQL_MONITOR_PREFIX;
+
 @Configuration
 @EnableConfigurationProperties(SqlMonitorAutoProperties.class)
 @ConditionalOnBean(SqlSessionFactory.class)
 @AutoConfigureAfter(MybatisAutoConfiguration.class)
+@ConditionalOnProperty(value = "enabled", prefix = SQL_MONITOR_PREFIX, matchIfMissing = true, havingValue = "true")
 public class SqlMonitorAutoConfiguration implements InitializingBean {
     
     @Autowired

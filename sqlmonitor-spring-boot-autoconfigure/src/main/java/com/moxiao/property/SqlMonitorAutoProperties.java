@@ -13,6 +13,8 @@ public class SqlMonitorAutoProperties {
     public static final String SQL_MONITOR_PREFIX = "sqlmonitor";
 
     public final Properties properties = new Properties();
+    
+    private Boolean enabled;
 
     /**
      * 慢SQL语句阈值，默认5000ms，大于该值成为慢SQL
@@ -134,6 +136,14 @@ public class SqlMonitorAutoProperties {
 
     public void setThreadPoolConfig(ThreadPoolConfiguration threadPoolConfig) {
         this.threadPoolConfig = threadPoolConfig;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public DingDingConfiguration getDingdingConfig() {

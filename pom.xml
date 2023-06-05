@@ -6,7 +6,7 @@
 
     <groupId>io.github.1997chang</groupId>
     <artifactId>sqlmonitor-spring-boot</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
     
     <name>sql-Monitor-spring-boot</name>
@@ -183,7 +183,7 @@
                 <configuration>
                     <serverId>mysonatype</serverId>
                     <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
         </plugins>
