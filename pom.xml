@@ -6,7 +6,7 @@
 
     <groupId>io.github.1997chang</groupId>
     <artifactId>sqlmonitor-spring-boot</artifactId>
-    <version>1.0.1</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
     
     <name>sql-Monitor-spring-boot</name>
@@ -50,11 +50,12 @@
     </modules>
     
     <properties>
+        <revision>1.0.2</revision>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <sqlmonitor.version>1.0.0</sqlmonitor.version>
+        <sqlmonitor.version>1.0.1</sqlmonitor.version>
         <mybatis.version>3.5.6</mybatis.version>
         <spring-boot.version>2.7.3</spring-boot.version>
         <mybatis-spring-boot.version>2.2.2</mybatis-spring-boot.version>
