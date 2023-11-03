@@ -50,7 +50,7 @@
     </modules>
     
     <properties>
-        <revision>1.0.2</revision>
+        <revision>1.0.3</revision>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -59,6 +59,7 @@
         <mybatis.version>3.5.6</mybatis.version>
         <spring-boot.version>2.7.3</spring-boot.version>
         <mybatis-spring-boot.version>2.2.2</mybatis-spring-boot.version>
+        <gpg.keyname>kmustchang97</gpg.keyname>
     </properties>
     
     <dependencyManagement>
@@ -185,6 +186,36 @@
                     <serverId>mysonatype</serverId>
                     <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                        <configuration>
+                            <updatePomFile>true</updatePomFile>
+                            <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <inherited>true</inherited>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
                 </configuration>
             </plugin>
         </plugins>
